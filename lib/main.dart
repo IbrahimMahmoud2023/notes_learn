@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:notes_learn/views/home_view.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(const NotesLearn());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class NotesLearn extends StatelessWidget {
+  const NotesLearn({super.key});
 
   // This widget is the root of your application.
   @override
