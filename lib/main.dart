@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:notes_learn/views/home_view.dart';
+import 'package:notes_learn/views/notes_view.dart';
 
 void main() {
   runApp(const NotesLearn());
@@ -12,12 +12,13 @@ class NotesLearn extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
+         brightness: Brightness.dark,
 
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
-      home: HomeView()
+      home: NotesView()
     );
   }
 }
