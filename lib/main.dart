@@ -16,9 +16,11 @@ class NotesLearn extends StatelessWidget {
       title: 'Flutter Demo',
       theme: ThemeData(
          brightness: Brightness.dark,
+        fontFamily: 'Poppins',
 
       ),
-      home: NotesView()
+      home: NotesView(),
+
     );
   }
 }
