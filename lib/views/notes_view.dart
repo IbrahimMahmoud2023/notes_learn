@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import '../widgets/notes_view_body.dart';
+import '../widgets/show_bottom_sheet.dart';
 
 class NotesView extends StatelessWidget {
   const NotesView({super.key});
@@ -9,7 +10,13 @@ class NotesView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      floatingActionButton: FloatingActionButton(onPressed: (){},
+      floatingActionButton: FloatingActionButton(onPressed: (){
+        showModalBottomSheet(
+            context: context,builder: (context) {
+             return AddNoteBottomSheet();
+            },
+        );
+      },
       child: Icon(FontAwesomeIcons.plus,size: 24,),
       ),
       body: Padding(
@@ -19,3 +26,6 @@ class NotesView extends StatelessWidget {
     );
   }
 }
+
+
+
