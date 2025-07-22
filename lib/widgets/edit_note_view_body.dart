@@ -20,7 +20,7 @@ class EditNoteViewBody extends StatelessWidget {
                 CustomSearchIcon(icon: Icons.check),
               ],
             ),
-            SizedBox(height: 32),
+            SizedBox(height: 50),
             CustomTextField(hintText: 'Title'),
             const SizedBox(height: 16),
             CustomTextField(hintText: 'Content', maxLines: 5),
