@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:notes_learn/widgets/custom_text_field.dart';
 
-import 'custom_app_bar.dart';
 import 'custom_search_icon.dart';
 
 class EditNoteViewBody extends StatelessWidget {
@@ -11,31 +10,20 @@ class EditNoteViewBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 24,vertical: 10),
+        padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 10),
         child: Column(
           children: [
-           Row(
-             children: [
-               Text('Edit Note',style: TextStyle(fontSize: 28),),
-               Spacer(),
-               CustomSearchIcon(
-                 icon: Icons.check,
-               ),
-             ],
-           ),
-             SizedBox(
-               height: 32,
-             ),
-            CustomTextField(
-              hintText: 'Title',
+            Row(
+              children: [
+                Text('Edit Note', style: TextStyle(fontSize: 28)),
+                Spacer(),
+                CustomSearchIcon(icon: Icons.check),
+              ],
             ),
-            const SizedBox(
-              height: 16,
-            ),
-            CustomTextField(
-              hintText: 'Content',
-              maxLines: 5,
-            )
+            SizedBox(height: 32),
+            CustomTextField(hintText: 'Title'),
+            const SizedBox(height: 16),
+            CustomTextField(hintText: 'Content', maxLines: 5),
           ],
         ),
       ),
