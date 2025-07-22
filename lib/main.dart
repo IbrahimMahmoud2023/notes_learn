@@ -12,17 +12,10 @@ class NotesLearn extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
-      theme: ThemeData(
-         brightness: Brightness.dark,
-        fontFamily: 'Poppins',
-
-      ),
+      theme: ThemeData(brightness: Brightness.dark, fontFamily: 'Poppins'),
       home: NotesView(),
-
     );
   }
 }
-
