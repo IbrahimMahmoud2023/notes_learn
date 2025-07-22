@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:notes_learn/widgets/custom_text_field.dart';
+import 'package:notes_learn/widgets/custom_text_form_field.dart';
 
 import 'custom_search_icon.dart';
 
@@ -21,9 +21,9 @@ class EditNoteViewBody extends StatelessWidget {
               ],
             ),
             SizedBox(height: 50),
-            CustomTextField(hintText: 'Title'),
+            CustomTextFormField(hintText: 'Title'),
             const SizedBox(height: 16),
-            CustomTextField(hintText: 'Content', maxLines: 5),
+            CustomTextFormField(hintText: 'Content', maxLines: 5),
           ],
         ),
       ),
