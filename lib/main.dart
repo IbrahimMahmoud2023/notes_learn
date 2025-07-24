@@ -6,11 +6,13 @@ import 'package:notes_learn/models/note_model.dart';
 import 'package:notes_learn/simple_bloc_observer.dart';
 import 'package:notes_learn/views/notes_view.dart';
 
+import 'cubits/addNoteCubit/add_note_cubit.dart';
+
 void main() async {
   await Hive.initFlutter();
   Bloc.observer = SimpleBlocObserver();
   Hive.registerAdapter(NoteModelAdapter());
-    Hive.openBox(kNotesBox);
+    Hive.openBox<NoteModel>(kNotesBox);
   runApp(const NotesLearn());
 }
 
