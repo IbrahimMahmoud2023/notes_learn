@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
+import '../cubits/readNoteCubit/read_note_cubit.dart';
 import '../widgets/notes_view_body.dart';
 import '../widgets/add_note_bottom_sheet.dart';
 
@@ -9,23 +11,26 @@ class NotesView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      floatingActionButton: FloatingActionButton(onPressed: (){
-        showModalBottomSheet(
-          isScrollControlled: true,
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(16),
-          ),
-            context: context,builder: (context) {
-             return AddNoteBottomSheet();
-            },
-        );
-      },
-      child: Icon(FontAwesomeIcons.plus,size: 24,),
-      ),
-      body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 24),
-        child: NotesViewBody()
+    return BlocProvider(
+      create: (context) => ReadNoteCubit(),
+      child: Scaffold(
+        floatingActionButton: FloatingActionButton(onPressed: () {
+          showModalBottomSheet(
+            isScrollControlled: true,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(16),
+            ),
+            context: context, builder: (context) {
+            return AddNoteBottomSheet();
+          },
+          );
+        },
+          child: Icon(FontAwesomeIcons.plus, size: 24,),
+        ),
+        body: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 24),
+            child: NotesViewBody()
+        ),
       ),
     );
   }
