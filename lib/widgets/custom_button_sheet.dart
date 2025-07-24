@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 
 class CustomButtonSheet extends StatelessWidget {
-  const CustomButtonSheet({super.key, this.onTap});
+  const CustomButtonSheet({super.key, this.onTap,this.isLoading = false});
   final void Function()? onTap;
+  final bool isLoading ;
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -15,7 +16,13 @@ class CustomButtonSheet extends StatelessWidget {
         height: 55,
         width: MediaQuery.of(context).size.width,
         child: Center(
-          child: Text(
+          child: isLoading ? SizedBox(
+            height: 24,
+            width: 24,
+            child: CircularProgressIndicator(
+              color: Colors.black,
+            ),
+          ) : Text(
             'Add',
             style: TextStyle(
               color: Colors.black,
