@@ -7,18 +7,23 @@ import 'package:notes_learn/models/note_model.dart';
 import '../views/edit_note_view.dart';
 
 class NoteItem extends StatelessWidget {
-  const NoteItem({super.key,required this.noteModel});
- final NoteModel noteModel;
+  const NoteItem({super.key, required this.noteModel});
+  final NoteModel noteModel;
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-     onTap: (){
-       Navigator.push(context,
-           MaterialPageRoute(
-               builder: (context) {
-              return EditNoteView();
-               },));
-     },
+      onTap: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) {
+              return EditNoteView(
+                noteModel: noteModel,
+              );
+            },
+          ),
+        );
+      },
       child: Container(
         padding: EdgeInsets.only(top: 24, bottom: 24, left: 16),
         decoration: BoxDecoration(
@@ -30,7 +35,7 @@ class NoteItem extends StatelessWidget {
           children: [
             ListTile(
               title: Text(
-               noteModel.title,
+                noteModel.title,
                 style: TextStyle(color: Colors.black, fontSize: 26),
               ),
               subtitle: Padding(
@@ -49,7 +54,11 @@ class NoteItem extends StatelessWidget {
                   BlocProvider.of<ReadNoteCubit>(context).fetchAllNotes();
                   ReadNoteSuccess();
                 },
-                icon: Icon(FontAwesomeIcons.trash, color: Colors.black, size: 24),
+                icon: Icon(
+                  FontAwesomeIcons.trash,
+                  color: Colors.black,
+                  size: 24,
+                ),
               ),
             ),
             Padding(
