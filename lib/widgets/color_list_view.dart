@@ -1,20 +1,59 @@
-
 import 'package:flutter/material.dart';
 
-import 'color_item.dart';
+class ColorItem extends StatelessWidget {
+  const ColorItem({super.key, required this.isActive, required this.color});
+  final bool isActive;
+  final Color color;
+  @override
+  Widget build(BuildContext context) {
+    return isActive
+        ? CircleAvatar(
+           radius: 38,
+            backgroundColor: Colors.white,
+            child: CircleAvatar(radius: 34, backgroundColor: color),
+          )
+        :  CircleAvatar(radius: 38, backgroundColor: color);
 
-class ColorListView extends StatelessWidget {
+  }
+}
+
+class ColorListView extends StatefulWidget {
   const ColorListView({super.key});
 
+  @override
+  State<ColorListView> createState() => _ColorListViewState();
+}
+
+class _ColorListViewState extends State<ColorListView> {
+  int currentIndex = 0;
+  List<Color> colors = const
+  [
+    Color(0xFF9EBC9E),
+    Color(0xFFFFCFD2),
+    Color(0xFFFFAFC5),
+    Color(0xFF553E4E),
+    Color(0xFFE0479E),
+  ];
   @override
   Widget build(BuildContext context) {
     return SizedBox(
       height: 38 * 2,
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
-        itemCount: 10,
+        itemCount: colors.length,
         itemBuilder: (context, index) {
-          return ColorItem();
+          return Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 4),
+            child: GestureDetector(
+                onTap: (){
+                  setState(() {
+                    currentIndex = index;
+                  });
+                },
+                child: ColorItem(
+                  color: colors[index],
+                  isActive: currentIndex == index ,)),
+          );
         },
       ),
     );
