@@ -13,7 +13,7 @@ class CustomButtonSheet extends StatelessWidget {
           borderRadius: BorderRadius.circular(8),
           color: Color(0xFF52ECD8),
         ),
-        height: 55,
+        height: 50,
         width: MediaQuery.of(context).size.width,
         child: Center(
           child: isLoading ? SizedBox(

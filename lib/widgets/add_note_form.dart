@@ -4,6 +4,7 @@ import 'package:intl/intl.dart';
 import 'package:notes_learn/models/note_model.dart';
 
 import '../cubits/addNoteCubit/add_note_cubit.dart';
+import 'color_list_view.dart';
 import 'custom_button_sheet.dart';
 import 'custom_text_form_field.dart';
 
@@ -41,6 +42,8 @@ class _AddNoteFormState extends State<AddNoteForm> {
             hintText: 'Content',
             maxLines: 5,
           ),
+          SizedBox(height: 16),
+          ColorListView(),
           SizedBox(height: 50),
         BlocBuilder<AddNoteCubit, AddNoteState>(
             builder: (context, state) {
@@ -50,7 +53,7 @@ class _AddNoteFormState extends State<AddNoteForm> {
                 onTap: () {
                   if (formKey.currentState!.validate()) {
                     formKey.currentState!.save();
-                    
+
                     String formattedDate = DateFormat('dd/MM/yyyy').format(DateTime.now());
                     var noteModel = NoteModel(
                         title: title!,
@@ -65,10 +68,15 @@ class _AddNoteFormState extends State<AddNoteForm> {
                   }
                 },
               );
+
             },
           ),
+          SizedBox(height: 24,)
         ],
       ),
     );
   }
 }
+
+
+
