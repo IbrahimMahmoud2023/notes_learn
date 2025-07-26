@@ -35,6 +35,15 @@ class _EditNoteViewBodyState extends State<EditNoteViewBody> {
                     subTitle ?? widget.noteModel.subTitle;
                 widget.noteModel.save();
                 BlocProvider.of<ReadNoteCubit>(context).fetchAllNotes();
+                ScaffoldMessenger.of(context).showSnackBar(
+                  SnackBar(
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(8),
+                    ),
+                    backgroundColor: Colors.green,
+                    content: Text('Edit Note Successfully'),
+                  ),
+                );
                 Navigator.pop(context);
               },
               title: 'Edit Note',

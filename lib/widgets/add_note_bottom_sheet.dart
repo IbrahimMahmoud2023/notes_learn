@@ -27,6 +27,15 @@ class _AddNoteBottomSheetState extends State<AddNoteBottomSheet> {
           }
           if (state is AddNoteSuccess) {
             BlocProvider.of<ReadNoteCubit>(context).fetchAllNotes();
+            ScaffoldMessenger.of(context).showSnackBar(
+              SnackBar(
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(8),
+                ),
+                backgroundColor: Colors.green,
+                content: Text('Note Added Successfully'),
+              ),
+            );
             Navigator.pop(context);
           }
         },
